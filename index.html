@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Counter</title>
+</head>
+<body>
+    <section class="content">
+        <h2>Counter</h2>
+        <div class="count">0
+        </div>
+        <button class="countbtn prev">Lower Count</button>
+        <button class="countbtn next">Add Count</button>
+    </section>
+
+    <script>
+        const buttons = document.querySelectorAll('.countbtn');
+        const count = document.querySelector('.count');
+        let num = 0;
+
+//Add event listeners and functionailty to each button
+        buttons.forEach((button)=>{
+            button.addEventListener('click', ()=>{
+                if(button.classList.contains('prev')){
+                   count.textContent = num--;
+                } else {
+                    count.textContent= num++;
+                }
+                count.textContent = num;
+
+                //Select the counter text
+                if (num < 0 ){
+                    count.style.color = 'red'
+                } else if (num > 0){
+                    count.style.color = 'green'
+                }
+            });
+        });
+        // lower.addEventListener('click', ()=>{
+            //     count.style.color = 'red';
+            // count.textContent = num--;
+        // });
+        // add.addEventListener('click', ()=>{
+        //     count.style.color = 'green';
+        //     count.textContent = num++;
+        // });
+    </script>
+</body>
+</html>
